@@ -1,0 +1,39 @@
+﻿@model Facturando_2.Models.Usuario
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar Facturador</h1>
+
+<h4>corrige la variable del facturador</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdFacturador" />
+            <div class="form-group">
+                <label asp-for="NombreFac" class="control-label"></label>
+                <input asp-for="NombreFac" class="form-control" />
+                <span asp-validation-for="NombreFac" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Edad" class="control-label"></label>
+                <input asp-for="Edad" class="form-control" />
+                <span asp-validation-for="Edad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Regresa a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

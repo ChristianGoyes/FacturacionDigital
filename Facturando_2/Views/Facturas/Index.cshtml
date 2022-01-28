@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Facturando_2.Models.Factura>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Tabla Facturas</h1>
+<h3>Encuentras todas las facturas realizadas</h3>
+<p>
+    <a asp-action="Create" class="btn btn-outline-warning">Crear nueva factura</a>
+</p>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdClienteF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdFactutaF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorTotal)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdClienteF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdFactutaF)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ValorTotal)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.IdFactura" class="btn btn-info">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdFactura" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

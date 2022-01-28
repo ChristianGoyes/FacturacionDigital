@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Facturando_2.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Facturadores</h1>
+<h4>Los siguientes son los encargados de las ventas </h4>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-warning">Crear nuevo Facturador</a>
+</p>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreFac)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Edad)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdFacturador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreFac)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Edad)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdFacturador" class="btn btn-primary">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdFacturador" class="btn btn-info">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdFacturador" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
